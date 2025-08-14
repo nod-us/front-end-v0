@@ -1,0 +1,368 @@
+/* Reset CSS - Eric Meyer */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Define box-sizing padrão */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* Remove estilo de listas */
+ol, ul {
+	list-style: none;
+}
+
+/* Remove sublinhado de links */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg:#f3f3f6;
+    --white:#ffffff;
+    --muted:#6b7280;
+    --text:#0b1220;
+    --purple-600:#5b2aa6; /* accent */
+    --purple-700:#3C096C;
+    --soft-purple:#f3ecff;
+    --card-shadow: 0 10px 30px rgba(16,24,40,0.08);
+    --radius:14px;
+    --container:1100px;
+    --buttonfont: #9D4EDD;
+    --footercolor: #10002B;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  }
+
+.button-fill{
+    background-color: var(--purple-700);
+    width: 256px;
+    height: 44px;
+    border-radius: 22px;
+    
+    color:  var(--white);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.site-header{
+    position: fixed;
+    width: 100vw;
+    z-index: 1000;
+    background-color: var(--white);
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.05);
+}
+
+.header-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 60px;
+    height: 60px;
+}
+.logo-header{
+    width: 120px;
+  }
+
+.item-menu-header{
+    margin: 0px 12px;
+    text-decoration: none;
+    color:inherit;
+}
+
+.item-menu-header:hover{
+    font-weight: 600;
+    text-decoration:underline;
+    color: var(--purple-600);
+}
+
+.options-menu{
+    display: flex;
+}
+
+.login-button{
+    color: var(--buttonfont);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    text-shadow: 0px 0px 18px #b173e4 ;
+}
+
+.container-first-contact{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 80px 80px;
+
+    background-image: url('img/background_waves_horizontal.svg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
+.title-first-contact{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.description-first-contact{
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.div-image-first-contact{
+    margin-left: 80px;
+}
+
+.image-first-contact{
+    width: 30vw;
+}
+
+
+
+.container-email-model{
+    background-image: url(img/nodus_background_text.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0px 80px;
+}
+
+.title-email-model{
+    text-align: right;
+    font-size: 48px;
+    color: var(--purple-700);
+}
+
+.description-email-model{
+    text-align: right;
+    font-size: 24px;
+}
+
+.text-email-model{
+    padding-right: 24px;
+}
+
+.image-email-model{
+    padding-right: 5px;
+    width: 40vw;
+}
+
+.container-forms{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 80px 80px;
+
+    background-image: url('img/background_waves_horizontal_mirror.svg');
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.image-forms{
+    width: 50vw;    
+}
+
+.text-forms{
+    margin-left: 56px;
+}
+
+.title-forms{
+    font-size: 56px;
+    margin-bottom: 24px;
+}
+
+.description-forms{
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.text-link-forms{
+    font-size: 24px;
+    color: var(--buttonfont);
+    font-weight: 600;
+}
+
+.container-footer{
+    background-color: var(--footercolor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+}
+
+.company-brand{
+    color: var(--white);
+}
+
+.item-midia-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list-midia-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.item-midia-footer{
+    margin: 4px 0px;
+}
+
+.id-midia-footer{
+    color: var(--white);
+    margin-left: 4px;
+}
+
+.logo-footer{
+    width: 100px;
+}
+
+.bold-purple{
+    color: var(--purple-600);
+}
+
+
+@media (max-width:1100px){
+    html, body{
+        overflow-x: hidden;
+
+    }
+    .nav{
+        visibility: hidden;
+        width: 0px;
+    }
+
+    .header-inner{
+        height: 40px;
+        margin: 12px 16px;
+
+    }
+
+    .logo-header{
+        margin-top: 8px;
+        width: 80px;
+    }
+    .login-button{
+        font-size: 16px;
+    }
+    .div-image-first-contact{
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+    }
+
+    .container-first-contact{
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 16px;
+        margin-bottom: 0px;
+    }
+
+    .image-first-contact{
+        width: 0px;
+    }
+
+    .button-fill{
+        width: 90vw;
+    }
+    
+    .container-email-model{
+        flex-direction: column;
+        margin-top: 60px;
+        padding: 0px 16px;
+    }
+
+    .image-email-model{
+        margin-top: 24px;
+        width: 80vw;
+    }
+
+    .title-email-model{
+        font-size: 36px;
+    }
+
+    .description-email-model{
+        font-size: 20px;
+    }
+
+    .container-forms{
+    flex-direction: column;
+    }
+
+    .text-forms{
+        margin: 0px
+    }
+
+    .image-forms{
+        visibility: hidden;
+    }
+    .container-forms{
+        padding: 0px 16px;
+    }
+    .title-forms{
+        font-size: 32px;
+    }
+
+    .description-forms{
+        font-size: 20px;
+    }
+
+    .text-link-forms{
+        font-size: 20px;
+    }
+
+    .container-footer{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .list-midia-footer{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 50vw;
+        margin: 8px 0px;
+    }
+
+    .id-midia-footer{
+        visibility: hidden;
+        width: 0px;
+    }
+}
