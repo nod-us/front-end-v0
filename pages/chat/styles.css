@@ -1,0 +1,104 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../img/background_waves_horizontal.svg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+/* Chat Widget Styling */
+#chat-widget-container {
+    width: 50vw;
+    height: 95vh;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+#chat-widget-header {
+    background: #854fff;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.back-homepage{
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#chat-widget-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+/* Increased spacing between messages */
+#chat-widget-body p {
+    margin-bottom: 15px; /* Adjust spacing between messages */
+    padding: 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+#chat-widget-footer {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
+#chat-widget-input {
+    flex: 1;
+    padding: 8px;
+    padding-left: 16px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    outline: none;
+}
+#chat-widget-send {
+    background: #854fff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+/* Make the chat bubble a perfect circle */
+#chat-widget-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #854fff;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width:1100px){
+
+    #chat-widget-container {
+        width: 95vw;
+    }
+
+}

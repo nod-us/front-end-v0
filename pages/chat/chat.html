@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nod.us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget-container">
+        <div id="chat-widget-header">
+            <span>Chat</span>
+            <a class="back-homepage" href="../../index.html">Home</a>
+        </div>
+        <div id="chat-widget-body">
+            <p style="margin-bottom: 20px;">
+                <strong>
+                    👋 Olá, seja bem-vindo!
+                    <br> Sou a nod.us, sua assistente pessoal para reunir e organizar informações de forma simples e rápida.
+                </strong>
+            </p>
+        </div>
+        <div id="chat-widget-footer">
+            <input type="text" id="chat-widget-input" placeholder="Digite aqui...">
+            <button id="chat-widget-send">➤</button>
+        </div>
+    </div>
+
+    <!-- Chat Widget Script -->
+    <script>
+        window.ChatWidgetConfig = {
+            webhook: {
+                url: 'https://matheusporti.app.n8n.cloud/webhook/e5616171-e3b5-4c39-81d4-67409f9fa60a/chat',
+                route: 'general'
+            },
+            style: {
+                primaryColor: '#854fff',
+                secondaryColor: '#6b3fd4',
+                position: 'right',
+                backgroundColor: '#ffffff',
+                fontColor: '#333333'
+            }
+        };
+
+
+
+        // Function to generate or retrieve a unique chat ID
+        function getChatId() {
+            let chatId = sessionStorage.getItem("chatId");
+            if (!chatId) {
+                chatId = "chat_" + Math.random().toString(36).substr(2, 9); // Unique ID
+                sessionStorage.setItem("chatId", chatId);
+            }
+            return chatId;
+        }
+
+        function connect_webhook() {
+            let message = document.getElementById("chat-widget-input").value;
+            if (message.trim() === "") return;
+
+            let chatBody = document.getElementById("chat-widget-body");
+            let newMessage = document.createElement("p");
+            newMessage.textContent = message;
+            newMessage.style.color = "#333";
+            newMessage.style.background = "#f1f1f1";
+            newMessage.style.borderRadius = "16px 16px 0px 16px"
+            newMessage.style.paddingLeft = "16px"
+            chatBody.appendChild(newMessage);
+
+            let chatId = getChatId(); // Retrieve the session chat ID
+
+            fetch(window.ChatWidgetConfig.webhook.url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chatId: chatId,  // Attach chat ID for memory tracking
+                    message: message,
+                    route: window.ChatWidgetConfig.webhook.route
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                let botMessage = document.createElement("p");
+                botMessage.innerHTML = data.output || "Sorry, I couldn't understand that.";
+                botMessage.style.color = "#fff";
+                botMessage.style.background = "#854fff";
+                botMessage.style.marginTop = "10px";
+                botMessage.style.borderRadius = "16px 16px 16px 0px"
+                botMessage.style.paddingRight = "16px"
+                
+                chatBody.appendChild(botMessage);
+            })
+            .catch(error => console.error("Error:", error));
+
+            document.getElementById("chat-widget-input").value = "";
+        }
+
+        // Send message to n8n webhook
+        document.getElementById("chat-widget-send").addEventListener("click", connect_webhook);
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                connect_webhook();
+            }
+        });
+    </script>
+
+</body>
+</html>
